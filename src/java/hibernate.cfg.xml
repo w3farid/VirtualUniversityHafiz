@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vversity?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">farid</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="com/pojo/Student.hbm.xml"/>
+    <mapping resource="com/pojo/UserRole.hbm.xml"/>
+    <mapping resource="com/pojo/Address.hbm.xml"/>
+    <mapping resource="com/pojo/Password.hbm.xml"/>
+    <mapping resource="com/pojo/CourseEnroll.hbm.xml"/>
+    <mapping resource="com/pojo/Admin.hbm.xml"/>
+    <mapping resource="com/pojo/Teacher.hbm.xml"/>
+    <mapping resource="com/pojo/Courses.hbm.xml"/>
+    <mapping resource="com/pojo/Result.hbm.xml"/>
+    <mapping resource="com/pojo/CourseDetails.hbm.xml"/>
+    <mapping resource="com/beans/Mcq.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

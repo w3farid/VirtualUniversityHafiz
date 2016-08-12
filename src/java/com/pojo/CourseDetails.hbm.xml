@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 24, 2016 8:34:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.CourseDetails" table="course_details" catalog="vversity" optimistic-lock="version">
+        <id name="slNo" type="java.lang.Integer">
+            <column name="sl_no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="courses" class="com.pojo.Courses" fetch="select">
+            <column name="course_id" length="10" />
+        </many-to-one>
+        <property name="weekNo" type="string">
+            <column name="week_no" length="45" />
+        </property>
+        <property name="lectureNo" type="string">
+            <column name="lecture_no" length="45" />
+        </property>
+        <property name="vedio" type="string">
+            <column name="vedio" length="45" />
+        </property>
+        <property name="document" type="string">
+            <column name="document" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

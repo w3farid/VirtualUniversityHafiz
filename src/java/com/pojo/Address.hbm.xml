@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 24, 2016 8:34:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Address" table="address" catalog="vversity" optimistic-lock="version">
+        <id name="addressId" type="java.lang.Integer">
+            <column name="address_id" />
+            <generator class="identity" />
+        </id>
+        <property name="country" type="string">
+            <column name="country" length="45" not-null="true" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" length="45" not-null="true" />
+        </property>
+        <property name="thana" type="string">
+            <column name="thana" length="45" not-null="true" />
+        </property>
+        <property name="mahalla" type="string">
+            <column name="mahalla" length="45" />
+        </property>
+        <property name="road" type="string">
+            <column name="road" length="45" />
+        </property>
+        <property name="house" type="string">
+            <column name="house" length="45" />
+        </property>
+        <property name="flatNo" type="string">
+            <column name="flat_no" length="45" />
+        </property>
+        <set name="students" table="student" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="address_id" />
+            </key>
+            <one-to-many class="com.pojo.Student" />
+        </set>
+        <set name="teachers" table="teacher" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="address_id" />
+            </key>
+            <one-to-many class="com.pojo.Teacher" />
+        </set>
+    </class>
+</hibernate-mapping>

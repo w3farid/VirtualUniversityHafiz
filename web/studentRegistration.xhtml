@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:tem="http://templete.com">
+    <h:head>
+        <title>Student Registration Form</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <div  style="height: 250px; width:100%; border: 2px solid red; border-radius: 5px; background-color: activeborder">
+                <h1 style="text-align: center; color: green; font-size: 50px; font-weight: bold;">Virtual University</h1>
+                <h3 style="text-align: center">A New Era of learning</h3>
+                
+                <div>
+                    <p:menubar>
+                        <p:menuitem value="Home" url="home.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </div>
+            </div>
+        <div style="width: 25%; float: left;">
+            <p:menu>
+                <p:menuitem value="Home" url="../home.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+            </p:menu>
+        </div>
+        </h:form>    
+        <h:form enctype="multipart/form-data">
+            <p:messages/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="ID : "/>
+                <p:inputText value="#{studentBean.student.studentId}" required="true" maxlength="20"/>
+                
+                <h:outputLabel value="Password : "/>
+                <p:password value="#{studentBean.userRole.password}" required="true" />
+                
+                <h:outputLabel value="First Name : "/>
+                <p:inputText value="#{studentBean.student.firstName}"/>
+                
+                <h:outputLabel value="Last Name : "/>
+                <p:inputText value="#{studentBean.student.lastName}" required="true" maxlength="30"/>
+                
+                <h:outputLabel value="Date of Birth : "/>
+                <p:calendar value="#{studentBean.student.dob}">
+                </p:calendar>
+                
+                <h:outputLabel value="Age : "/>
+                <p:inputText value="#{studentBean.student.age}"/>
+                
+                <h:outputLabel value="Gender : "/>
+                <p:selectOneRadio value="#{studentBean.student.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="male"/>
+                    <f:selectItem itemLabel="Female" itemValue="female"/>
+                </p:selectOneRadio>
+                
+                <h:outputLabel value="Email : "/>
+                <p:inputText value="#{studentBean.student.email}"/>
+                
+                <h:outputLabel value="Phone : "/>
+                <p:inputText value="#{studentBean.student.phone}"/>
+                
+                <h:outputLabel value="Choose Image : "/>
+                <p:fileUpload value="#{studentBean.upFile}" mode="simple"/>
+                
+                <h:outputLabel value="Country : "/>
+                <p:inputText value="#{studentBean.address.country}"/>
+                
+                <h:outputLabel value="District : "/>
+                <p:inputText value="#{studentBean.address.district}"/>
+                
+                <h:outputLabel value="Thana : "/>
+                <p:inputText value="#{studentBean.address.thana}"/>
+                
+                <h:outputLabel value="Mahalla : "/>
+                <p:inputText value="#{studentBean.address.mahalla}"/>
+                
+                <h:outputLabel value="Road : "/>
+                <p:inputText value="#{studentBean.address.road}"/>
+                
+                <h:outputLabel value="House No : "/>
+                <p:inputText value="#{studentBean.address.house}"/>
+                
+                <h:outputLabel value="Flat no : "/>
+                <p:inputText value="#{studentBean.address.flatNo}"/>
+                
+                <h:outputLabel value=""/>
+                <p:commandButton value="Submit" action="#{studentBean.saveStudent()}" ajax="false"/>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

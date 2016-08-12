@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:tem="http://templete.com"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>student home</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div  style="height: 250px; width:100%; border: 2px solid red; border-radius: 5px; background-color: activeborder">
+                <h1 style="text-align: center; color: green; font-size: 50px; font-weight: bold;">Virtual University</h1>
+                <h3 style="text-align: center">A New Era of learning</h3>
+
+                <div>
+                    <p:menubar>
+                        <p:menuitem value="Home" url="home.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </div>
+            </div>
+        </h:form>   
+        <div style="float: right; width: 200px; border: 1px solid green" >
+            <h3>Logged as #{loginBean.userRole}</h3>
+            <h:form>
+                <p:commandButton value="Logout" action="#{loginBean.logout()}" process="@this"/>
+            </h:form>
+        </div>
+
+        <div style="float: Left; width: 200px; border: 1px solid green" >
+            <h:form>
+                <p:panelMenu >
+                    <p:submenu label="Profile">
+                        <p:menuitem value="My Courses" url="j1.xhtml"/>
+                        <p:menuitem value="Result" action="studentResult.xhtml">
+                            <f:setPropertyActionListener value="#{loginBean.student.studentId}" target="#{resultBean.studentId}"/>
+                            <f:setPropertyActionListener value="j1" target="#{resultBean.courseId}"/>
+                        </p:menuitem>
+                        <p:menuitem value="Show Profile" url="studentHome.xhtml"/>
+                        <p:menuitem value="Update Profile" url="#"/>
+                        <p:menuitem value="Delete Profile" url="#"/>
+                    </p:submenu>
+
+                </p:panelMenu>
+            </h:form>    
+        </div>
+
+        <h:form>
+            <div style="margin-left: 30%">
+                <p:panelGrid columns="2">
+                    <f:facet name="header">
+                        <p:graphicImage value="/resources/images/userImages/#{loginBean.student.image}" style="width: 300px; height: 250px"></p:graphicImage>
+                    </f:facet>
+
+                    <h:outputLabel value="ID : "/>
+                    <h:outputText value="#{loginBean.student.studentId}"/>
+
+                    <h:outputLabel value="First Name : "/>
+                    <h:outputText value="#{loginBean.student.firstName}"/>
+
+                    <h:outputLabel value="Last Name : "/>
+                    <h:outputText value="#{loginBean.student.lastName}"/>
+
+                    <h:outputLabel value="Date of Birth : "/>
+                    <h:outputText value="#{loginBean.student.dob}"/>
+
+                    <h:outputLabel value="Age : "/>
+                    <h:outputText value="#{loginBean.student.age}"/>
+
+                    <h:outputLabel value="Gender : "/>
+                    <h:outputText value="#{loginBean.student.gender}"/>
+
+                    <h:outputLabel value="Email : "/>
+                    <h:outputText value="#{loginBean.student.email}"/>
+
+                    <h:outputLabel value="Phone : "/>
+                    <h:outputText value="#{loginBean.student.phone}"/>
+                </p:panelGrid>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

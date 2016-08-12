@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div  style="height: 250px; width:100%; border: 2px solid red; border-radius: 5px; background-color: activeborder">
+                <h1 style="text-align: center; color: green; font-size: 50px; font-weight: bold;">Virtual University</h1>
+                <h3 style="text-align: center">A New Era of learning</h3>
+
+                <div>
+                    <p:menubar>
+                        <p:menuitem value="Home" url="home.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </div>
+            </div>
+        </h:form>   
+        <div style="float: right; width: 200px; border: 1px solid green" >
+            <h3>Logged as #{loginBean.userRole}</h3>
+            <h:form>
+                <p:commandButton value="Logout" action="#{loginBean.logout()}" process="@this"/>
+            </h:form>
+        </div>
+
+        <div style="float: Left; width: 200px; border: 1px solid green" >
+            <p:panelMenu >
+                <p:submenu label="Profile">
+                    <p:menuitem value="My Courses" url="j1.xhtml"/>
+                    <p:menuitem value="Show Profile" url="studentHome.xhtml"/>
+                    <p:menuitem value="Update Profile" url="studentUpdate"/>
+                    <p:menuitem value="Delete Profile" url="#"/>
+                </p:submenu>
+
+            </p:panelMenu>
+        </div>
+        <div style="margin-left: 20%;float: left; width: 300px; border: 1px solid green" >
+            <h1>Student Result</h1>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Student Name "/>
+                <p:outputLabel value="#{loginBean.student.firstName} #{loginBean.student.lastName}"/>
+                
+                <p:outputLabel value="Gender "/>
+                <p:outputLabel value="#{loginBean.student.gender}"/>
+                
+                <p:outputLabel value="Date of Birth "/>
+                <p:outputLabel value="#{loginBean.student.dob}"/>
+                
+                <p:outputLabel value="Course name "/>
+                <p:outputLabel value="j2ee"/>
+            </p:panelGrid> 
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Week no #{result.week}"/>
+                <p:outputLabel value="Quiz Mark"/>
+                <c:forEach items="#{resultBean.resultList}" var="result">
+                    <p:outputLabel value="W#{result.week}"/>
+                    <p:outputLabel value="#{result.exam}"/>
+                </c:forEach>
+            </p:panelGrid>
+        </div>
+        
+    </h:body>
+</html>
+

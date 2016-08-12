@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 24, 2016 8:34:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Student" table="student" catalog="vversity" optimistic-lock="version">
+        <id name="studentId" type="string">
+            <column name="student_id" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="address" class="com.pojo.Address" fetch="select" cascade="all">
+            <column name="address_id" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" not-null="true" />
+        </property>
+        <property name="dob" type="date">
+            <column name="dob" length="10" not-null="true" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="10" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="15" not-null="true" unique="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="100" not-null="true" unique="true" />
+        </property>
+        <set name="courseEnrolls" table="course_enroll" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="com.pojo.CourseEnroll" />
+        </set>
+        <set name="results" table="result" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" length="20" not-null="true" />
+            </key>
+            <one-to-many class="com.pojo.Result" />
+        </set>
+    </class>
+</hibernate-mapping>

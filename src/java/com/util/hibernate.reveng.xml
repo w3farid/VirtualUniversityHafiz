@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="vversity"/>
+  <table-filter match-name="admin"/>
+  <table-filter match-name="password"/>
+  <table-filter match-name="result"/>
+  <table-filter match-name="course_enroll"/>
+  <table-filter match-name="user_role"/>
+  <table-filter match-name="course_details"/>
+  <table-filter match-name="address"/>
+  <table-filter match-name="teacher"/>
+  <table-filter match-name="student"/>
+  <table-filter match-name="courses"/>
+  <table-filter match-name="mcq"/>
+</hibernate-reverse-engineering>

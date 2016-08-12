@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 24, 2016 8:34:10 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Courses" table="courses" catalog="vversity" optimistic-lock="version">
+        <id name="courseId" type="string">
+            <column name="course_id" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="teacher" class="com.pojo.Teacher" fetch="select">
+            <column name="teacher_id" length="20" />
+        </many-to-one>
+        <property name="courseName" type="string">
+            <column name="course_name" length="45" not-null="true" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="start_date" length="10" not-null="true" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="end_date" length="10" />
+        </property>
+        <set name="courseEnrolls" table="course_enroll" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.pojo.CourseEnroll" />
+        </set>
+        <set name="courseDetailses" table="course_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" length="10" />
+            </key>
+            <one-to-many class="com.pojo.CourseDetails" />
+        </set>
+        <set name="results" table="result" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" length="10" not-null="true" />
+            </key>
+            <one-to-many class="com.pojo.Result" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <ui:composition>
+            <div  style="height: 250px; width:100%; border: 2px solid red; border-radius: 5px; background-color: activeborder">
+                <h1 style="text-align: center; color: green; font-size: 50px; font-weight: bold;">Virtual University</h1>
+                <h3 style="text-align: center">A New Era of learning</h3>
+                
+                <div>
+                    <p:menubar>
+                        <p:menuitem value="Home" url="home.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </div>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

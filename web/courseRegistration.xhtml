@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Student Registration Form</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <div  style="height: 250px; width:100%; border: 2px solid red; border-radius: 5px; background-color: activeborder">
+                <h1 style="text-align: center; color: green; font-size: 50px; font-weight: bold;">Virtual University</h1>
+                <h3 style="text-align: center">A New Era of learning</h3>
+
+                <div>
+                    <p:menubar>
+                        <p:menuitem value="Home" url="teacherHome.xhtml"></p:menuitem>
+                        <p:menuitem value="All Courses" url="course.xhtml"/>
+                        <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                        <p:menuitem value="Contact" url="contacts.xhtml"/>
+                        <p:menuitem value="Login" url="login.xhtml"/>
+                        <p:submenu label="Registration">
+                            <p:menuitem value="Student Registration" url="studentRegistration.xhtml"/>
+                            <p:menuitem value="Teacher Registration" url="teacherRegistration.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </div>
+            </div>
+            <div style="width: 25%; float: left;">
+                <p:menu>
+                    <p:menuitem value="Home" url="teacherHome.xhtml"></p:menuitem>
+                    <p:menuitem value="All Courses" url="course.xhtml"/>
+                    <p:menuitem value="Teacher List" url="teachers.xhtml"/>
+                    <p:menuitem value="Offer New Cources" url="courseRegistration.xhtml"/>
+                    <p:menuitem value="New Cources" url="courseDetailsRegistration.xhtml"/>
+                </p:menu>
+            </div>            
+        </h:form> 
+        <h1>Course registration form</h1>
+        <h:form>
+            <p:messages/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Course ID : "/>
+                <p:inputText value="#{coursesBean.cources.courseId}" required="true" maxlength="20"/>
+
+                <h:outputLabel value="Course Name : "/>
+                <p:inputText value="#{coursesBean.cources.courseName}" required="true"/>
+
+                <h:outputLabel value="Start Date : "/>
+                <p:calendar value="#{coursesBean.cources.startDate}"/>
+
+                <h:outputLabel value="End Date : "/>
+                <p:calendar value="#{coursesBean.cources.endDate}"/>
+
+                <h:outputLabel value="Teacher Id : "/>
+                <p:inputText value="#{coursesBean.teacher.teacherId}" required="true"/>
+
+                <h:outputLabel value=""/>
+                <p:commandButton value="Submit" action="#{coursesBean.saveCourses()}"/>
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
